@@ -1,0 +1,31 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Ajax 테스트</title>
+
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" language="javascript">
+    
+    $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",   
+    {   
+        tags: "mount rainier",   
+        tagmode: "any",   
+        format: "json"   
+      },   
+      function(data) {   
+        $.each(data.items, function(i,item){   
+          $("<img/>").attr("src", item.media.m).appendTo("#images");   
+          if ( i == 3 ) return false;   
+        });   
+    });  
+    
+  </script> 
+
+</head>
+<body>
+
+    <div id="AjaxTest"></div>
+
+</body>
+</html>

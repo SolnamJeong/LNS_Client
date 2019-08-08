@@ -9,9 +9,10 @@
 
     $(document).ready(function(){
         $.ajax({
-            type : "GET",
-            url : "/AjaxTest.html",
-            dataType : "text",
+            type : "POST",
+            contentType: "application/json",
+            url : "http://1740f255.ngrok.io/testget?data=13",
+            dataType : "json",
             error : function(){
                 alert('통신실패!!');
 
@@ -21,6 +22,7 @@
                 $("#AjaxTest").html(data) ;
             }
         });
+
         
         });
  
