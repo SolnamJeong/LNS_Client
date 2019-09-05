@@ -1,0 +1,46 @@
+<!--DOCTYPE html-->
+<html> 
+<head> 
+<meta charset="UTF-8"> 
+<title>Insert title here</title> 
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script> 
+<script type="text/javascript"> $(function(){ $("#searchButton").click(function(){ var flag = $("#resultSelect").val(); </script> 
+
+
+<script type="text/javascript"> 
+$(function(){ $("#searchButton").click(function(){ 
+	var flag = $("#resultSelect").val();
+	if(flag == "Y") { 
+        url = "http://1740f255.ngrok.io/testbody"; //목적지 body 값 변경 필요
+    } else { 
+        url = "/list2.json"; 
+} 
+
+$.ajax({ 
+	url: url , 
+	dataType : 'json' , 
+	success: function(data) 
+	 { 
+		if(data.flag == "Y"){ 
+            var result = data.data;
+        } 
+		else { 
+            var result = data.data; 
+        } 
+	$("#listLayout").html(data.data); 
+     } }); 
+}) 
+            }) 
+</script>
+
+
+</head> 
+    <body> 
+    <select id="resultSelect"> 
+            <option value="Y">TEST URL</option> 
+            <option value="N">내부 파일 테스트</option> 
+        </select> 
+        <input type="button" id="searchButton" value="조회" /><br/> 
+        <div id="listLayout"></div> 
+ </body> 
+</html>

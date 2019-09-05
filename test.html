@@ -9,18 +9,20 @@
 
     $(document).ready(function(){
         $.ajax({
-            type : "POST",
+            type : "GET",
             contentType: "application/json",
-            url : "http://1740f255.ngrok.io/testget?data=13",
+            url : "/AjaxTest.html",
             dataType : "json",
-            error : function(){
-                alert('통신실패!!');
-
-            },
+            async:false,
             success : function(data){
                 alert("통신데이터 값 : " + data) ;
                 $("#AjaxTest").html(data) ;
+            },
+            error : function(){
+                alert('통신실패!!');
+
             }
+            
         });
 
         
